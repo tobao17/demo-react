@@ -5,7 +5,7 @@ export class table extends Component {
     this.props.datauser.map((value, key) => (
       <Tabledatarow
         stt={key}
-        username={value.Name}
+        username={value.name}
         tel={value.tel}
         permission={value.permission}
       />

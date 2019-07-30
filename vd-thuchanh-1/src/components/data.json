@@ -1,31 +1,31 @@
 [
   {
     "id": 1,
-    "Name": "Pham To Bao",
+    "name": "Pham To Bao",
+    "tel": "01020201",
+    "permission": 1
+  },
+  {
+    "id": 2,
+    "name": "Nguyen huu trong",
+    "tel": "01020201",
+    "permission": 1
+  },
+  {
+    "id": 3,
+    "name": "Phan van duc",
     "tel": "01020201",
     "permission": 1
   },
   {
     "id": 1,
-    "Name": "Pham To Bao",
+    "name": "Nguyen Quang Hai",
     "tel": "01020201",
     "permission": 1
   },
   {
     "id": 1,
-    "Name": "Pham To Bao",
-    "tel": "01020201",
-    "permission": 1
-  },
-  {
-    "id": 1,
-    "Name": "Pham To Bao",
-    "tel": "01020201",
-    "permission": 1
-  },
-  {
-    "id": 1,
-    "Name": "Pham To Bao",
+    "name": "Nguyen Van Toan",
     "tel": "01020201",
     "permission": 1
   }

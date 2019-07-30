@@ -1,6 +1,19 @@
 import React, { Component } from "react";
 
 export class search extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      temvalue: ""
+    };
+  }
+
+  ischange = event => {
+    this.setState({
+      temvalue: event.target.value
+    });
+    this.props.check(this.state.temvalue);
+  };
   hienthinut = () => {
     if (this.props.hienthiform === true) {
       return (
@@ -22,11 +35,17 @@ export class search extends Component {
           <div className="form-group">
             <input
               type="text"
+              onChange={event => this.ischange(event)}
               className="form-control"
               placeholder="nhập vào"
               style={{ width: "400px" }}
             />
-            <div className="btn btn-info"> Tìm </div>
+            <div
+              className="btn btn-info "
+              onClick={dl => this.props.check(this.state.temvalue)}
+            >
+              Tìm
+            </div>
           </div>
         </form>
         {this.hienthinut()}
