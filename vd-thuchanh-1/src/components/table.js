@@ -8,6 +8,9 @@ export class table extends Component {
         username={value.name}
         tel={value.tel}
         permission={value.permission}
+        id={value.id}
+        chuyendulieu={() => this.props.hienthinutsuavalaydulieu(value)}
+        deletefunction={id => this.props.deletefunction(id)}
       />
     ));
 

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import Edituser from "./edituser";
 export class search extends Component {
   constructor(props) {
     super(props);
@@ -28,9 +28,21 @@ export class search extends Component {
         </div>
       );
   };
+  isedit = () => {
+    if (this.props.isedit === true)
+      return (
+        <Edituser
+          hienthinutsua={() => this.props.hienthinutsua()}
+          dulieuhienthinutsua={this.props.dulieuhienthinutsua}
+          laythongtintubangsua={info => this.props.laythongtintubangsua(info)}
+        />
+      );
+  };
+
   render() {
     return (
       <div className="col-sm-12">
+        {this.isedit()}
         <form className="form-inline">
           <div className="form-group">
             <input

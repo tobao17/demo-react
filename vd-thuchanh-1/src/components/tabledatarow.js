@@ -6,6 +6,9 @@ export class tabledatarow extends Component {
     else if (this.props.permission === 2) return "Modelrator";
     else return "Normal";
   };
+  deletefunction = id => {
+    console.log(id);
+  };
   render() {
     return (
       <tr>
@@ -15,10 +18,16 @@ export class tabledatarow extends Component {
         <td>{this.permissionshow()}</td>
         <td>
           <div className="btn-group">
-            <div className="btn btn-warning">
+            <div
+              className="btn btn-warning"
+              onClick={value => this.props.chuyendulieu(value)}
+            >
               <i className="fa fa-edit    ">Sửa</i>
             </div>
-            <div className="btn btn-danger">
+            <div
+              className="btn btn-danger"
+              onClick={id => this.props.deletefunction(this.props.id)}
+            >
               <i className="fa fa-trash   ">Xóa</i>
             </div>
           </div>
