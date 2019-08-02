@@ -15,6 +15,18 @@ export class App extends Component {
       dulieuhienthinutsua: {}
     };
   }
+
+  componentWillMount() {
+    if (localStorage.getItem("userdata") === null) {
+      localStorage.setItem("userdata", JSON.stringify(Datauser));
+    } else {
+      var temp = JSON.parse(localStorage.getItem("userdata"));
+      this.setState({
+        data: temp
+      });
+    }
+  }
+
   laydulieutubangthem = item => {
     var them = {};
     them.id = item.id;
@@ -26,6 +38,7 @@ export class App extends Component {
     this.setState({
       data: items
     });
+    localStorage.setItem("userdata", JSON.stringify(items));
   };
   checktimkiem = temvalue => {
     this.setState({
@@ -62,6 +75,7 @@ export class App extends Component {
     this.setState({
       data: temdata
     });
+    localStorage.setItem("userdata", JSON.stringify(temdata));
   };
   render() {
     var ketqua = [];
