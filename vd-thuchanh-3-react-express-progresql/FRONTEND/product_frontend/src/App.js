@@ -1,11 +1,20 @@
 import React, { Component } from "react";
 import Headtitle from "./components/Headtitle";
 import Product_item from "./components/Product_item";
+import Adddata from "./components/add";
 import axios from "axios";
 const product_data = () => {
-  return axios.get("http://localhost:4000/getdata01").then(res => res.data);
+  return axios.get("/getdata01").then(res => res.data);
 };
-
+const addproductaction = (product_name, product_price, product_image) => {
+  return axios
+    .post("/add", {
+      product_name,
+      product_price,
+      product_image
+    })
+    .then(Res => Res.data);
+};
 export default class App extends Component {
   constructor(props) {
     super(props);
@@ -13,7 +22,28 @@ export default class App extends Component {
       data: null
     };
   }
-
+  laydulieu = (a, b, c) => {
+    console.log(a, b, c);
+    var data2 = ([] = this.state.data);
+    var item = {};
+    item.product_name = a;
+    item.product_price = b;
+    item.product_image = c;
+    data2.push(item);
+    addproductaction(a, b, c).then(resp => {
+      console.log(resp);
+    });
+    this.setState({
+      data: data2
+    });
+  };
+  handerclick = (name, price, image) => {
+    // this.setState(
+    //   (this.state.product_name = name),
+    //   (this.state.product_price = price),
+    //   (this.state.product_image = image)
+    // );
+  };
   componentWillMount() {
     if (this.state.data === null) {
       product_data().then(dulieu => {
@@ -55,6 +85,7 @@ export default class App extends Component {
       <div>
         <Headtitle />
         <div className="container">
+          <Adddata laydulieu={(a, b, c) => this.laydulieu(a, b, c)} />
           <div className="row">{this.printdata()}</div>
         </div>
       </div>
